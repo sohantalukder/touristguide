@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/full-view-guiders.css' %}" />
+<link rel="stylesheet" href="{% static '/StyleSheet/bootstrap/bootstrap.min.css' %}" />
+<link rel="stylesheet" href="{% static '/StyleSheet/footer.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/full-view-image.css' %}" />
+		<script
+			src="https://kit.fontawesome.com/7e1812adc5.js"
+			crossorigin="anonymous"
+		></script>
+{% endblock custom_css %}
+{% block title %}
+guider place
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+<main class="mb-5 ">
+              <section class="home-intro"></section>
+                <div class="container row d-flex">
+                    <div class="guiders-information col-lg-8 col-12 pe-5">
+                        <h5>Guiders</h5>
+                        <h2>{{ single_guider.name }}</h2>
+                        <p><strong>Our Certified Best GUiders</strong></p>
+                        <div class="d-flex">
+                            <div class="pe-4"><p class="m-0"><strong>Total Services</strong> </p><h3 class="m-0">234</h3></div>
+                                <div><p class="m-0"><strong>Total Review</strong></p>
+                                <h3 class="m-0">{{ single_guider.review_count }}</h3></div>
+                             <div style="margin-left: 30px;"><p class="m-0"><strong>Hourly Rate</strong></p>
+                                <h3 class="m-0">৳ {{ single_guider.hourly_rate }}</h3></div>
+                        
+                    </div>
+                    <hr>
+                    <div class="about">
+                        <h4><strong>About Me</strong></h4>
+                        <p>
+                            {{ single_guider.details }}
+                        </p>
+                                                           <div class="design_number">
+                                        <ul  class="second-step">
+                                            <div class="range-slider" style="width: 300px;">
+                                              <input class="range-slider__range" type="range" name="weight" id="range_weight" value="{{ my_ratting.score }}" min="1" max="5" oninput="range_weight_disp.value = range_weight.value"
+                                                     onchange="myfunc();">
+                                                <i class="fas fa-star"></i><output class="range-slider__value"  id="range_weight_disp">{{ my_ratting.score }} </output>
+                                                <script>
+                                                    function getCookie(name) {
+                                                    var cookieValue = null;
+                                                    if (document.cookie && document.cookie !== '') {
+                                                        var cookies = document.cookie.split(';');
+                                                        for (var i = 0; i < cookies.length; i++) {
+                                                            var cookie = cookies[i].trim();
+                                                            // Does this cookie string begin with the name we want?
+                                                            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
+                                                    return cookieValue;
+                                                }
+                                                  var csrftoken = getCookie('csrftoken');
+
+                                                    function myfunc(){
+                                                            var url ="{% url 'guider_ratting' %}";
+                                                            var val=document.getElementById("range_weight_disp").innerHTML;
+                                                            console.log(val);
+                                                            fetch(url,{
+                                                                method:'POST',
+                                                                headers:{
+                                                                    'Content-type':'application/json',
+                                                                    'X-CSRFToken':csrftoken,
+                                                                },
+                                                                body:JSON.stringify({'placeId':{{single_guider.id}},'rating':val })
+                                                            });
+                                                        alert("Your Ratting is added succesfully")
+
+                                                    }
+                                                </script>
+
+                                            </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                    </div>
+                    <form method="post" action="{% url 'guider_details' single_guider.id %}">{% csrf_token %}
+                        <label>Select Hour</label><br>
+                        <input type="number" style="padding: 5px 10px;"  value="1" min="1" name="hour_select"><br>
+                        <button class="hire-me" style="margin-top: 10px;" type="submit">Hire Me</button>
+                    </form>
+                   
+                </div>
+                <div class="guiders-image col-lg-4 col-12">
+                    <img src="{{ single_guider.photo.url }}" alt="">
+                </div>
+                </div>
+</main>
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+    <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+<script src="{% static 'Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}

@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+{#<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">#}
+<link rel="stylesheet" href="{% static '/StyleSheet/contact-us.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <style>
+.alert {
+  padding: 10px;
+  background-color: #54b208;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+{% endblock custom_css %}
+{% block title %}
+FAQ
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+  <main onMouseOver="removePopup()"  class="container">
+      <section class="home-intro"></section>
+      <section class="contact-us">
+        <div class="get-in-touch">
+          <article class="article-container">
+            <h1>Get in Touch</h1>
+            <p class="info">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis
+              adipiscing proin velit vitae tincidunt. Vestibulum consectetur
+              nibh commodo amet diam nibh. Quisque phasellus elit enim senectus.
+              Faucibus commodo tortor, volutpat in hac pulvinar sollicitudin.
+              Enim vitae quam ultrices turpis ornare fringilla mus habitasse.
+            </p>
+            <div class="contact">
+              <p>
+                <i class="far fa-envelope-open"></i
+                ><a href="touristguide@gmail.com">touristguide@gmail.com</a>
+              </p>
+              <p><i class="fas fa-mobile-alt"></i> 01865748726</p>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Dattapara, Ashulia, Savar,
+                Dhaka
+              </p>
+            </div>
+          </article>
+          <div class="contact-form">
+            <article>
+              <div>
+                <h1>Say Something</h1>
+                  {%for message in messages %}
+                                    {%if "contact" in message.tags %}
+                                        <div class="alert">
+                                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                  <strong>Success!</strong> {{ message }}
+                                </div>
+                                    {% endif %}
+                                    {% endfor %}
+                <div class="form-input">
+                  <form action="{% url 'contact' %}" method="post">{% csrf_token %}
+                    <input
+                      type="text"
+                      id="fname"
+                      name="your_name"
+                      placeholder="Your name"
+                      required
+                    />
+                    <input
+                      type="email"
+                      id="lname"
+                      name="your_email"
+                      placeholder="Email"
+                      required
+                    />
+                    <textarea
+                      name="your_message"
+                      id=""
+                      cols="30"
+                      rows="10"
+                      placeholder="Message"
+                      required
+                    ></textarea>
+                      <button class="btn-send" type="submit">SEND</button>
+                  </form>
+
+                </div>
+              </div>
+            </article>
+          </div>
+          <div></div>
+        </div>
+      </section>
+    </main>
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+      <!--sticky toggle-->
+  <script type ="text/javascript">
+      window.addEventListener("scroll", function(){
+       var header = document.querySelector("header");
+       header.classList.toggle("sticky", window.scrollY > 0);
+      })
+    </script>
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+    <script src="{% static 'Js/nav.jsj' %}"></script>
+{% endblock custom_javascripts %}
+
+
+
+

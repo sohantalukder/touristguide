@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+{#<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">#}
+<link rel="stylesheet" href="{% static '/StyleSheet/about-us.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+
+{% endblock custom_css %}
+{% block title %}
+FAQ
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+
+  <!--heading part-->
+    <section class="home-intro">
+      <h1>About Tourist<span>Guide</span></h1>
+      <p class="mainp">
+        Our goal is to get to the place of your choice very easily and let you
+        enjoy the natural beauty of <br />
+        Bangladesh.
+      </p>
+    </section>
+
+
+<!--main body-->
+    <section class="container">
+      <div class="about">
+        <div class="intro">
+          <img src="{% static '/image/about-team/kathi.svg' %}" alt="" />
+          <h3>adifa Vuiya kathi</h3>
+          <p>ceo & chairman</p>
+        </div>
+        <div class="intro">
+          <img src="{% static 'image/about-team/koli.svg' %}" alt="" />
+          <h3>koli mondol mira</h3>
+          <p>ceo & chairman</p>
+        </div>
+        <div class="intro">
+          <img src="{% static 'image/about-team/akash.svg' %}" alt="" />
+          <h3>md. sohan talukder</h3>
+          <p>ceo & chairman</p>
+        </div>
+
+      </div>
+
+  </section>
+
+    <!--another part for navbar-->
+    <main onMouseOver="removePopup()">
+      <section class="home-intro"></section>
+    </main>
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+      <!--sticky toggle-->
+  <script type ="text/javascript">
+      window.addEventListener("scroll", function(){
+       var header = document.querySelector("header");
+       header.classList.toggle("sticky", window.scrollY > 0);
+      })
+    </script>
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+    <script src="{% static 'js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}

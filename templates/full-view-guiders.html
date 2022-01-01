@@ -1,0 +1,268 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/full-view-image.css' %}" />
+		<link rel="stylesheet" href="{% static '/StyleSheet/bootstrap/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}" />
+        <link rel="stylesheet" href="{% static '/StyleSheet/footer.css' %}">
+
+		<link rel="stylesheet" href="{% static '/StyleSheet/full-view-image.css' %}" />
+		<script
+			src="https://kit.fontawesome.com/7e1812adc5.js"
+			crossorigin="anonymous"
+		></script>
+{% endblock custom_css %}
+{% block title %}
+{{ my_place.place_name }}
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+
+		<main>
+			<div class="container mb-5">
+				<div class="row gutters">
+					<div class="col-12">
+						<div class="header home-intro">
+							<h1 class="mb-0">{{ my_place.place_name }}</h1>
+							<p class="d-flex align-items-center">
+								<i class="fas fa-map-pin pe-2"></i>Location
+								<span class="px-1">.</span>
+								<span><u>{{ my_place.sub_distrcit }},</u></span>
+								<span><u>{{ my_place.district }} ,</u></span>
+								<span><u>{{ my_place.division }}, Bangladesh</u></span>
+							</p>
+						</div>
+					</div>
+					<div class="container image-view">
+						<div class="row">
+							<div class="m-auto">
+								<div class="showcase-wrapper d-flex align-items-center">
+									<div
+										class="
+											thumb-previewer
+											pe-5
+											pt-2
+											rounded
+											col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12
+										"
+									>
+										<img
+											src="{{ my_place.image.url }}"
+											alt="images"
+											class="img-fluid text-decoration-none"
+										/>
+									</div>
+
+									<ul style="margin-bottom: 21rem;"
+										class="
+											thumb-img
+											d-flex
+											flex-column
+											align-items-center
+											justify-content-center
+											list-unstyled
+											mt-lg-4
+											col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12
+										"
+									>
+                                        <h4 class="text-left" style="margin-top: -11rem;">You may like</h4>
+                                        {% for r in related %}
+										<li onclick="location.href='{% url 'place_details' r.id %}'" style="cursor: pointer;">
+											<div>
+												<img
+													src="{{ r.image.url }}"
+													alt="thumb-img text-decoration-none"
+												/>
+											</div>
+                                            <h5 style="text-align: center;font-size: 15px;">{{ r.place_name }}</h5>
+										</li>
+                                        {% empty %}
+                                        <p>There is no related places</p>
+                                        {% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="information d-flex mt-3">
+						<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 pe-5">
+							<div class="header">
+								<h1 class="mb-0 fw-normal">
+									{{ my_place.place_name }}
+								</h1>
+								<p class="d-flex align-items-center">
+									<span class="pe-1">{{ my_food.count }} Famour Food</span>
+									<span>|</span>
+									<span class="ps-1">{{ my_hotel.count }} Hotel</span>
+								</p>
+								<hr />
+                                <p style="text-align: justify;margin-bottom: 3%;">
+                                    {{ my_place.description }}
+                                </p>
+                                   <div class="design_number">
+                                        <ul  class="second-step">
+                                            <div class="range-slider" style="width: 300px;">
+                                              <input class="range-slider__range" type="range" name="weight" id="range_weight" value="{{ my_ratting.score }}" min="1" max="5" oninput="range_weight_disp.value = range_weight.value"
+                                                     onchange="myfunc();">
+                                                <i class="fas fa-star"></i><output class="range-slider__value"  id="range_weight_disp">{{ my_ratting.score }} </output>
+                                                <script>
+                                                    function getCookie(name) {
+                                                    var cookieValue = null;
+                                                    if (document.cookie && document.cookie !== '') {
+                                                        var cookies = document.cookie.split(';');
+                                                        for (var i = 0; i < cookies.length; i++) {
+                                                            var cookie = cookies[i].trim();
+                                                            // Does this cookie string begin with the name we want?
+                                                            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
+                                                    return cookieValue;
+                                                }
+                                                  var csrftoken = getCookie('csrftoken');
+
+                                                    function myfunc(){
+                                                            var url ="{% url 'add_rating' %}";
+                                                            var val=document.getElementById("range_weight_disp").innerHTML;
+                                                            console.log(val);
+                                                            fetch(url,{
+                                                                method:'POST',
+                                                                headers:{
+                                                                    'Content-type':'application/json',
+                                                                    'X-CSRFToken':csrftoken,
+                                                                },
+                                                                body:JSON.stringify({'placeId':{{my_place.id}},'rating':val })
+                                                            });
+                                                        alert("Your Ratting is added succesfully")
+
+                                                    }
+                                                </script>
+
+                                            </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+							</div>
+							<div class="details">
+								<div class="home d-flex">
+									<p class="pe-3"><i class="fas fa-home"></i></p>
+									<div>
+										<h4 class="m-0">Best Hotel Services</h4>
+										<p>
+											Your Nearest Hotel:
+                                            {% for h in my_hotel %}
+                                            <u>{{ h.name }}</u> ,
+                                            {% empty %}
+                                            <u>No Hotel Here</u>
+                                            {% endfor %}
+
+										</p>
+									</div>
+								</div>
+
+								<div class="place d-flex">
+									<p class="pe-3"><i class="fas fa-map-marked-alt"></i></p>
+									<div>
+										<h4 class="m-0">Nearest Best Places</h4>
+										<p>
+											Nearest Best Places:
+                                            {% for n in my_nearest %}
+                                            <u>{{ n.name }}</u> ,
+                                             {% empty %}
+                                             <u>No best place nearby</u> ,
+											{% endfor %}
+										</p>
+									</div>
+								</div>
+								<div class="food d-flex">
+									<p class="pe-3"><i class="fas fa-utensils"></i></p>
+									<div>
+										<h4 class="m-0">Famous Food This Place</h4>
+										<p>
+											Nearest Best Food:
+                                            {% for f in my_food %}
+                                            <u>{{ f.name }}</u> ,
+                                            {% empty %}
+                                            <u>No Food Nearby</u> ,
+											{% endfor %}
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="ccol-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+							<div class="p-4 rounded-3 shadow-md">
+								<h3>
+									{{ my_place.price }}/-
+									<span>Per Day</span>
+								</h3>
+								<form action="" method="post">
+                                   {% csrf_token %}
+                                    {{ form.as_p }}
+									<input
+										class="w-100 py-2 mt-3 rounded-2"
+										type="submit"
+										value="Check Availability"
+									/>
+                                    <input type="hidden" name="place" value="{{ my_place.id }}">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+
+
+<!--sticky toggle-->
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+<script src="{% static '/js/full-view-image.js' %}"></script>
+<script src="{% static '/Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}

@@ -1,0 +1,105 @@
+/* Fonts Import */
+@font-face {
+	font-family: 'Proxima Nova Regular';
+	src: url('../fonts/ProximaNova-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova SemiBold';
+	src: url('../fonts/ProximaNova-Semibold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Bold';
+	src: url('../fonts/ProximaNova-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Color */
+:root {
+	--primary: #5fbe00;
+	--secondary: #101b21;
+	--boxText: #5c5c5c;
+	--paragraph-text: #000000;
+	--danger: #ff0000;
+	--boxBackground: #f8f8f8;
+	--boxBackground: #f3f3f3;
+	--white: #ffffff;
+	--ternary: #c4c4c4;
+	--love: #ff6262;
+	--button-background-color: #fafafa;
+	--icon-colour: #4a4a4a;
+}
+
+body {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-family: 'Proxima Nova Regular' !important;
+}
+
+.container {
+	width: 1140px !important;
+	margin: 0 !important;
+	margin: auto !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+}
+
+.header h1 {
+	font-family: 'Proxima Nova SemiBold';
+	font-size: 1.5rem;
+}
+.header p {
+	font-size: 0.9rem !important;
+}
+.header .fas {
+	color: var(--danger) !important;
+}
+
+.image-view ul li a {
+	display: block !important;
+	padding: 6px !important;
+}
+.image-view ul li img {
+	max-width: 100% !important;
+	line-height: 50px !important;
+	font-size: 16px;
+	padding: 0 10px;
+
+	box-sizing: border-box;
+}
+input[type='date'],
+input[type='number'] {
+	outline: 0;
+}
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
+	display: none;
+	-webkit-appearance: none;
+}
+.shadow-md {
+	box-sizing: border-box;
+	box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+input[type='submit'] {
+	background-color: var(--primary);
+	color: var(--white);
+	outline: 0;
+	border: 0;
+	transition: all 0.3s;
+}
+input[type='submit']:hover {
+	background-color: var(--secondary);
+}
+
+.details .fas {
+	font-size: 2rem;
+}
+main {
+	margin-top: 112px !important;
+}

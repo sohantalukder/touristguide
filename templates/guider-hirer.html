@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/guider-hirer.css' %}" />
+<style>
+.pagination {
+  display: inline-block;
+    margin: 3% 7%;
+}
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+}
+</style>
+{% endblock custom_css %}
+{% block title %}
+guider place
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+<main >
+      <section class="home-intro">
+        <h1 class="header-part">Meet Our Tourist<span>Guide Guider</span></h1>
+        <p class="header-paragraph-part">
+          Our goal is to get to the place of your choice very easily and let you
+          enjoy the natural beauty of<br />
+          Bangladesh
+        </p>
+      </section>
+      <section class="banner2">
+        <div class="tourist-guider">
+            {% for g in guiders %}
+          <div class="guider-box">
+            <div class="guider-pay-amount">
+              <h5><i class="fas fa-circle"></i> ৳ {{ g.hourly_rate }}/hr</h5>
+            </div>
+            <div class="guider">
+              <img src="{{ g.photo.url }}" style="border-radius: 50%;" alt="" />
+              <p class="guider-work">
+                {{ g.details|slice:":122" }}
+              </p>
+              <div class="star-icon">
+                  {% if g.get_ratting_float == 0 %}
+                   <i class="far fa-star"></i>
+                  {% elif g.get_ratting_float > 0 and g.get_ratting_float <= 1  %}
+                     <i class="fas fa-star"></i>
+                  {% elif g.get_ratting_float > 1 and g.get_ratting_float < 2  %}
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half"></i>
+                  {% elif g.get_ratting_float == 2 %}
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  {% elif g.get_ratting_float > 2 and g.get_ratting_float < 3  %}
+                     <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half"></i>
+                  {% elif g.get_ratting_float == 3 %}
+                       <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  {% elif g.get_ratting_float > 3 and g.get_ratting_float < 4  %}
+                       <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half"></i>
+                  {% elif g.get_ratting_float == 4 %}
+                       <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  {% elif g.get_ratting_float > 4 and g.get_ratting_float < 5  %}
+                       <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half"></i>
+                  {% elif g.get_ratting_float == 5 %}
+                       <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  {% endif %}
+
+              </div>
+              <h5 class="guider-name">{{ g.name }}</h5>
+              <h6 class="guider-designation">{{ g.designation }}</h6>
+              <a class="hire-me" href="{% url 'guider_details' g.id %}">View Details</a>
+            </div>
+          </div>
+            {% empty %}
+            <h4>There is no guider</h4>
+            {% endfor %}
+        </div>
+
+      </section>
+{% if guiders.has_other_pages %}
+    <div class="pagination">
+    {% if guiders.has_previous %}
+      <a href="?page={{ guiders.previous_page_number }}">&laquo;</a>
+    {% else %}
+      <a href=""class="isDisabled">&laquo;</a>
+    {% endif %}
+    {% for i in guiders.paginator.page_range %}
+      {% if guiders.number == i %}
+          <a class="active" href="#">{{ i }}</a>
+      {% else %}
+        <a href="?page={{ i }}">{{ i }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if guiders.has_next %}
+      <a href="?page={{ guiders.next_page_number }}">&raquo;</a>
+    {% else %}
+      <a href="#"class="isDisabled">&raquo;</a>
+    {% endif %}
+
+    </div>
+{% endif %}
+    </main>
+
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+<script src="{% static 'Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}

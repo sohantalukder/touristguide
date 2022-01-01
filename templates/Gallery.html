@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+{#<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">#}
+<link rel="stylesheet" href="{% static '/StyleSheet/Gallery.css' %}">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<style>
+    .pagination-buttons{
+    display: none;
+    }
+    </style>
+    <style>
+.pagination {
+  display: inline-block;
+    margin: 3% 7%;
+}
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+}
+</style>
+
+{% endblock custom_css %}
+{% block title %}
+guider place
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+   <main onMouseOver="removePopup()" class="container">
+      
+      <section class="header-part home-intro">
+
+         <div >
+            <h1>People Share their Visited Stroy</h1>
+         <p>Our aim is to provide you with a top-quality tour experience</p>
+         </div>
+
+      </section>
+      <section class="people-visited-history">
+          {% for f in all_feedback %}
+         <div class="visited-place">
+            {% if f.image != "" %}
+             <img src="{{ f.image.url }}" alt="">
+            {% else %}
+            <img src="{% static 'image/destination.png' %}" alt="">
+            {% endif %}
+            <!-- people suggestion part -->
+            <article class="people-review ">
+               <div class="people-suggestions">
+                  <div class="People-identity">
+                     <h3>{{ f.name }} </h3>
+                  </div>
+                  <div class="react-number">
+                     <a href="{% url 'love_view' f.id %}"><i class="fas fa-heart"></i></a>
+                     <p>{{ f.total_love }}</p>
+                  </div>
+               </div>
+
+               <p class="paragraph-content" style="text-align: justify;">
+                   {{ f.experience|slice:":210" }}
+               </p>
+
+            </article>
+         </div>
+           {% empty %}
+          <h4>There is no Post</h4>
+          {% endfor %}
+
+      </section>
+   {% if all_feedback.has_other_pages %}
+    <div class="pagination">
+    {% if guiders.has_previous %}
+      <a href="?page={{ all_feedback.previous_page_number }}">&laquo;</a>
+    {% else %}
+      <a href=""class="isDisabled">&laquo;</a>
+    {% endif %}
+    {% for i in all_feedback.paginator.page_range %}
+      {% if all_feedback.number == i %}
+          <a class="active" href="#">{{ i }}</a>
+      {% else %}
+        <a href="?page={{ i }}">{{ i }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if all_feedback.has_next %}
+      <a href="?page={{ all_feedback.next_page_number }}">&raquo;</a>
+    {% else %}
+      <a href="#"class="isDisabled">&raquo;</a>
+    {% endif %}
+    {% endif %}
+       </div>
+   </main>
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+    <script src="{% static 'js/gallery.js' %}"></script>
+{% endblock custom_javascripts %}

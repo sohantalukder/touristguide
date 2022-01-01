@@ -1,0 +1,79 @@
+/* Fonts Import */
+@font-face {
+	font-family: 'Proxima Nova Regular';
+	src: url('../fonts/ProximaNova-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova SemiBold';
+	src: url('../fonts/ProximaNova-Semibold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Bold';
+	src: url('../fonts/ProximaNova-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Color */
+:root {
+	--primary: #5fbe00;
+	--secondary: #101b21;
+	--boxText: #5c5c5c;
+	--paragraph-text: #000000;
+	--danger: #ff0000;
+	--boxBackground: #f8f8f8;
+	--boxBackground: #f3f3f3;
+	--white: #ffffff;
+	--ternary: #c4c4c4;
+	--love: #ff6262;
+	--button-background-color: #fafafa;
+	--icon-colour: #4a4a4a;
+}
+
+body {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-family: 'Proxima Nova Regular' !important;
+}
+
+.container {
+	width: 1140px !important;
+	margin: 0 !important;
+	margin: auto !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+}
+
+main {
+	margin-top: 112px !important;
+}
+
+.guiders-image img {
+	width: 100% !important;
+}
+.guiders-information h5 {
+	font-size: 1rem;
+}
+.guiders-information h2 {
+	font-size: 1.5rem;
+	font-family: 'Proxima Nova SemiBold' !important;
+}
+
+.hire-me {
+	background-color: var(--primary) !important;
+	color: var(--white) !important;
+	border: 0;
+	padding: 0.5rem 1rem !important;
+	transition: 0.3s all;
+	font-size: 0.9rem;
+	border-radius: 2px !important;
+}
+.hire-me:hover {
+	background-color: var(--secondary) !important;
+}

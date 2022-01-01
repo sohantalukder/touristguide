@@ -1,0 +1,43 @@
+{% load static %}
+<header>
+    <div class="nav container">
+
+        <a onMouseOver="removePopup()" href="{% url 'home' %}" class="site-logo" aria-label="homepage"><img
+                src="{% static '/logo/Black logo.svg' %}" alt="Tourist Guide Logo" /></a>
+        <nav class="main-nav">
+            <form class="search-field">
+                <div class="searchMain" style="width: 500px;">
+                    <input type="text" name="q" value="{{ request.GET.q }}"  id="searchFood" placeholder="Search with guider name, designation, description" />
+                </div>
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </form>
+        </nav>
+        <nav class="account" onMouseOver="removePopup()">
+            <ul class="nav__list">
+                <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="{% url 'home' %}" class="nav__link">Home</a>
+                </li>
+
+                {% if request.user.is_authenticated %}
+                <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="{% url 'profile' %}" class="nav__link">{{request.user|title}}</a>
+                </li>
+                <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="{% url 'logout' %}" class="nav__link">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="{% url 'signin' %}" class="nav__link">Sign In</a>
+                </li>
+                <div class="dropdown" onMouseOver="handlePopup()">
+                    <li class="nav__list-item active">
+                        <a href="{% url 'registration' %}" class="nav__link">Register</i></a>
+                    </li>
+                </div>
+                {% endif %}
+
+
+            </ul>
+        </nav>
+    </div>
+</header>

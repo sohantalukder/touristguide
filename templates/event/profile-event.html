@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static '/StyleSheet/profile-event.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+{% endblock custom_css %}
+{% block title %}
+profile Event
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+<section class="container home-intro">
+  <div class="profile-blog-information-row">
+
+    <div class="profile-blog-information-left">
+
+      <img src="{% static 'image/Profile/profile.png' %}" alt="">
+
+      <div class="profile-info">
+
+        <h2>
+          {{ request.user.name }}
+        </h2>
+        <h4 class="email"> {{ request.user.email }}</h4>
+        <h4 class="address">Balance : ৳ {{request.user.balance}}</h4>
+        <a class="profile-btn" href="{% url 'edit_profile' %}">Edit Profile</a>
+      </div>
+
+    </div>
+
+    <div class="profile-blog-information-right">
+
+      <div class="list-property">
+        <ul>
+          <li>Famous Food</li>
+          <li>Famous Place</li>
+          <li>Contact Number</li>
+        </ul>
+      </div>
+
+      <div class="list-value">
+        <ul>
+
+          <li>{{ request.user.favt_food }}</li>
+          <li>{{ request.user.favt_place }}</li>
+          <li>{{ request.user.contact_number }}</li>
+        </ul>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  <section class="middle-nav">
+
+    <nav class="account">
+      <ul class="profile-link__list ">
+        <li class="profile-link__list-item">
+
+          <p id="profile_post" class="profile-link ">Blog Post</p>
+        </li>
+        <li class="profile-link__list-item">
+          <p id="event" class="profile-link ">Event</p>
+        </li>
+        <li class="profile-link__list-item">
+
+
+          <p class="profile-link">Chat with Guiders</p>
+
+        </li>
+      </ul>
+
+    </nav>
+
+  </section>
+
+<section id="event-section">
+
+    <div class="profile-event-history">
+
+
+      {% for event in events %}
+      <div class="profile-event">
+
+        {% ifequal event.publish 'Accept' %}
+        <div class="upar-tick-icon"><i class="fas fa-check-circle"></i></div>
+        {% else %}
+        <div class="upar-cross-icon"><i class="fas fa-times-circle"></i></div>
+        {% endifequal %}
+        <!-- <div class="upar-tick-icon"><i class="fas fa-check-circle"></i></div> -->
+
+        <!-- <div class="upar-cross-icon"><i class="fas fa-times-circle"></i></div> -->
+
+        <div class="profile-event-info">
+          <h2 class="place-name">{{event.event_title}}</h2>
+          <h3 class="date">{{event.traveling_dates}}, {{event.total_traveling_person}} Person</h3>
+          <p class="place-description">{{event.event_description|safe|slice:":150"}}....</p>
+          <p class="place-description">Approved Status: {{event.publish|safe}}</p>
+          <div class="event-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <h5>{{event.traveling_location|safe}}</h5>
+          </div>
+            <div class="event-location">
+            <a href="{% url 'event_status' event.id %}">Check Status</a>
+          </div>
+        </div>
+
+      </div>
+
+      {% endfor %}
+    </div>
+    </div>
+
+  </section>
+<section id="profile_blog" style="display: none;margin-top: 10px;">
+<div class="people-visited-history ">
+{% for f in my_post %}
+  <div class="visited-place">
+            {% if f.image != "" %}
+             <img src="{{ f.image.url }}" alt="">
+            {% else %}
+            <img src="{% static 'image/destination.png' %}" alt="">
+            {% endif %}
+            <!-- people suggestion part -->
+            <article class="people-review ">
+               <div class="people-suggestions">
+                  <div class="People-identity">
+                     <h3>{{ f.name }} </h3>
+                  </div>
+                  <div class="react-number">
+                     <a href="{% url 'love_view_event' f.id %}"><i class="fas fa-heart"></i></a>
+                     <p>{{ f.total_love }}</p>
+                  </div>
+               </div>
+
+               <p class="paragraph-content" style="text-align: justify;">
+                   {{ f.experience|slice:":210" }}
+               </p>
+
+            </article>
+         </div>
+{% empty %}
+<h4>There is no post</h4>
+{% endfor %}
+</div>
+</section>
+</section>
+</section>
+
+
+
+
+
+
+
+
+<script>
+document.getElementById('profile_post').addEventListener('click', function () {
+	document.getElementById('event-section').style.display = 'none';
+	document.getElementById('profile_blog').style.display = 'block';
+});
+document.getElementById('event').addEventListener('click', function () {
+	document.getElementById('profile_blog').style.display = 'none';
+	document.getElementById('event-section').style.display = 'block';
+});
+
+</script>
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+
+<script src="{% static '/js/profile-event.js' %}"></script>
+<script src="{% static '/Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}

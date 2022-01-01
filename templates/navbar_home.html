@@ -1,0 +1,54 @@
+{% load static %}
+<header>
+    <div class="nav container">
+        <a onMouseOver="removePopup()" href="{% url 'home' %}" class="site-logo" aria-label="homepage"><img
+                src="{% static '/logo/Black logo.svg' %}" alt="Tourist Guide Logo" /></a>
+        <nav class="main-nav">
+            <ul class="nav__list">
+                <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="{% url 'home' %}" class="nav__link">Home</a>
+                </li>
+                <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="{% url 'destination_view' %}" class="nav__link">Destination</a>
+                </li>
+                <div class="dropdown" onMouseOver="handlePopup()">
+                    <li class="nav__list-item">
+                        <a href="#" class="nav__link dropdown-main">Pages <i class="fas fa-chevron-down"></i></a>
+                    </li>
+                    <div class="drop">
+                        <ul class="dropdown-menu nav__list">
+                            <a class="nav__link" href="{% url 'guider_view' %}">Guide</a>
+                            <a class="nav__link" href="{% url 'gallery' %}">Gallery</a>
+                            <a class="nav__link" href="{% url 'create-event' %}">Create Event</a>
+                            <a class="nav__link" href="">Contact Us</a>
+                        </ul>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+        <nav class="account" onMouseOver="removePopup()">
+            <ul class="nav__list">
+
+
+                {% if request.user.is_authenticated %}
+                <li class="nav__list-item">
+                    <a class="nav__link nav__link--btn" href="{% url 'profile' %}">{{request.user|title}}</a>
+                </li>
+                <li class="nav__list-item">
+                    <a class="nav__link nav__link--btn" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav__list-item">
+                    <a class="nav__link nav__link--btn" href="{% url 'signin' %}">Login</a>
+                </li>
+                <li class="nav__list-item">
+                    <a class="nav__link nav__link--btn nav__link--btn--highlight" href="{% url 'registration' %}">Sign
+                        Up</a>
+                </li>
+                {% endif %}
+
+
+            </ul>
+        </nav>
+    </div>
+</header>

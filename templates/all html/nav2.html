@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Favicon   -->
+    <link
+      rel="shortcut icon"
+      href="./favicon/facicon.svg"
+      type="image/x-icon"
+    />
+    <!-- font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/7e1812adc5.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- StyleSheet - -->
+    <link rel="stylesheet" href="./StyleSheet/nav2.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav container">
+        <a
+          onMouseOver="removePopup()"
+          href="#"
+          class="site-logo"
+          aria-label="homepage"
+          ><img src="./logo/Black logo.svg" alt="Tourist Guide Logo"
+        /></a>
+        <nav class="main-nav">
+          <fieldset class="search-field">
+            <div class="searchMain">
+              <label for="searchFood">What:</label>
+              <input
+                type="text"
+                name=""
+                id="searchFood"
+                placeholder="Ex: Famous Food, Famous Place, Way Path"
+              />
+            </div>
+            <div class="search-bar-hr">
+              <p>|</p>
+            </div>
+            <div class="search-location">
+              <label for="searchLocation">Where:</label>
+              <input
+                type="text"
+                name=""
+                placeholder="Location"
+                id="searchLocation"
+              />
+            </div>
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </fieldset>
+        </nav>
+        <nav class="account" onMouseOver="removePopup()">
+          <ul class="nav__list">
+            <li class="nav__list-item" onMouseOver="removePopup()">
+                <a href="#" class="nav__link">Home</a>
+              </li>
+              <li class="nav__list-item" onMouseOver="removePopup()">
+                <a href="#" class="nav__link">Sign In</a>
+              </li>
+              <div class="dropdown" onMouseOver="handlePopup()">
+                <li class="nav__list-item active">
+                  <a href="#" class="nav__link"
+                    >Register</i
+                  ></a>
+                </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main onMouseOver="removePopup()">
+      <section class="home-intro"></section>
+    </main>
+    <!-- <script src="./Js/nav.js"></script> -->
+  </body>
+</html>

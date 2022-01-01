@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+        <link rel="stylesheet" href="./StyleSheet/full-view-guiders.css" />
+		<link rel="stylesheet" href="./StyleSheet/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="./StyleSheet/nav2.css" />
+        <link rel="stylesheet" href="./StyleSheet/footer.css">
+
+		<link rel="stylesheet" href="./StyleSheet/full-view-image.css" />
+		<script
+			src="https://kit.fontawesome.com/7e1812adc5.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+        <header> <div class="nav container d-flex justify-content-between align-items-center">
+            <a
+              onMouseOver="removePopup()"
+              href="#"
+              class="site-logo"
+              aria-label="homepage"
+              ><img src="logo/Black logo.svg" alt="Tourist Guide Logo"
+            /></a>
+            <nav class="main-nav">
+            <fieldset class="search-field">
+                <div class="searchMain">
+                  <label for="searchFood">What:</label>
+                  <input
+                    type="text"
+                    name=""
+                    id="searchFood"
+                    placeholder="Ex: Famous Food, Famous Place, Way Path"
+                  />
+                </div>
+                <div class="search-bar-hr">
+                  <p>|</p>
+                </div>
+                <div class="search-location">
+                  <label for="searchLocation">Where:</label>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="Location"
+                    id="searchLocation"
+                  />
+                </div>
+                <button onclick="window.location.href = 'destination.html'" class="search-btn"><i class="fas fa-search"></i></button>
+              </fieldset>
+            </nav>
+            <nav class="account" onMouseOver="removePopup()">
+              <ul class="nav__list">
+                <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="home.html" class="nav__link">Home</a>
+                  </li>
+                  <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="signin.html" class="nav__link">Sign In</a>
+                  </li>
+                 
+                    <li class="nav__list-item active">
+                      <a href="registration.html" class="nav__link"
+                        >Register</i
+                      ></a>
+                    </li>
+              </ul>
+            </nav>
+          </div></header>
+          <main class="mb-5 ">
+              <section class="home-intro"></section>
+                <div class="container row d-flex">
+                    <div class="guiders-information col-lg-8 col-12 pe-5">
+                        <h5>Guiders</h5>
+                        <h2>Shoan Ahmed</h2>
+                        <p><strong>Our Certified Best GUiders</strong></p>
+                        <div class="d-flex">
+                            <div class="pe-4"><p class="m-0"><strong>Total Services</strong> </p><h3 class="m-0">234</h3></div>
+                                <div><p class="m-0"><strong>Total Review</strong></p>
+                                <h3 class="m-0">234</h3></div>
+                        
+                    </div>
+                    <hr>
+                    <div class="about">
+                        <h4><strong>About Me</strong></h4>
+                        <p>Sharing is who I am, and guiding is where I am at my best, because I've been on both sides of that equation, and getting to deliver useful guiding is my meaningful way to be a part of the creative community.
+
+                            I've spent a long time watching others nature, and village, to refine how I work with you to be efficient, useful and, most importantly, memorable. I want you to carry what I've shown you into a bright future.
+                            
+                            I have a wife (a lovely Irish girl) and kids. I have lived and worked in many places (as Kiwis tend to do) – but most of my 14+ years of working a guiders has had one overriding theme: bringing others along for the ride as we all try to change the world with our stories, our labours of love and our art.
+                            
+                            I'm a certified Tourist Guiders in Bangladesh.
+                            
+                            I've been starting for 14+ years. I come from being a media designer and content creator – so I understand exactly where you're at now. I've been there. I love this stuff. Print, digital publishing, web and video. I can see how it all connects. And I can see how we can share those connections.</p>
+
+                    </div>
+                    <button class="hire-me">Hire Me</button>
+                   
+                </div>
+                <div class="guiders-image col-lg-4 col-12">
+                    <img src="./image/Guiders/image2.jpg" alt="">
+                </div>
+          </main>
+          <footer class="mt-5">
+            <div class="footer-container">
+              <div class="footer-half-container">
+                <div class="footer-logo">
+                  <a href="./home.html"
+                    ><img class="footer-logo" src="./logo/White Logo.svg" alt=""
+                  /></a>
+                </div>
+                <article>
+                  <p class="footer-article">
+                    We earned a reputation of being good at what we do. Let us take
+                    your online shop to new dimension in success!
+                  </p>
+                  <div class="footer-location">
+                    <p>
+                      <i class="fas fa-map-marker-alt"></i>Ashulia, Dhaka, Bnagladesh
+                      1400
+                    </p>
+                    <p>
+                      <a href="touristguide@gmail.com"
+                        ><i class="far fa-envelope-open"></i
+                          ></i>touristguide@gmail.com</a
+                      >
+                    </p>
+                    <p>
+                      <a href="+8801865748726"
+                        ><i class="fas fa-mobile-alt"></i>+88 01865748726</a
+                      >
+                    </p>
+                  </div>
+                  <div class="footer-social-icon">
+                    <a href="#"><i class="fab fa-facebook" id="active"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                </article>
+              </div>
+              <div class="footer-half-container">
+                <div class="receive-update">
+                  <h1>RECEIVE EMAIL UPDATES</h1>
+                  <div>
+                      <input type="email" placeholder="Your Email Address" required />
+                  <a href="#">Join</a>
+                  </div>
+                </div>
+          <div class="footer-link">
+              <div class="touristguide-link">
+                  <h3>Tourist Guide</h3>
+                  <ul>
+                    <li><a href="../About-us.html">About Us</a></li>
+                    <li><a href="./Gallery.html">Gallery</a></li>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="./Create-Event.html">Create Event</a></li>
+                    <li><a href="../contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="help-link">
+                  <h3>Help</h3>
+                  <ul>
+                    <li><a href="../FAQ.html">FAQ</a></li>
+                    <li><a href="../Trems-conditions.html">Terms and conditions</a></li>
+                    <li><a href="">Chat with TouristGuide</a></li>
+                    <li><a href="../howtouse.html">How To Use</a></li>
+                  </ul>
+                </div>
+                <div class="about-us">
+                  <h3>About</h3>
+                  <ul>
+                    <li><a href="./feedback.html">Share History</a></li>
+                    <li><a href="./profile-event.html">Profile</a></li>
+                    <li><a href="../contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+          </div>
+              </div>
+            </div>
+            <hr class="my-0"/>
+            <p class="copyright mb-0">
+              Copyright © 2020 . <a href="#">Tourist Guide</a> All rights reserved
+            </p>
+          </footer>
+          <script src="./js/nav2.js"></script>
+    </body>
+</html>

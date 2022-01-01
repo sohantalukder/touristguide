@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/Destination.css' %}">
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<style>
+#left_viw{
+    display: none;
+}
+ </style>
+{% endblock custom_css %}
+{% block title %}
+Search place
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+ <main onMouseOver="removePopup()" class="container main-part">
+      <section class="home-intro"></section>
+      <section class="container-width">
+         <div class="header-part">
+            <div class="all-button">
+               <div class="dropdown">
+
+
+                     <select name="cars" id="myDropdown" class="dropdown-content">
+                        <option value="all-category">All Category</option>
+                        <option value="premium">Premium</option>
+                        <option value="economy">Economy</option>
+                        <option value="business">Business</option>
+                      </select>
+
+               </div>
+
+               <div class="link-button">
+                  <a class="link-button-1" href=""><img src="icon/Group 54.svg" alt="">Open Now</a>
+                  <a class="link-button-2" href=""><img src="icon/Vector (3).svg" alt="">High Rated</a>
+                  <a class="link-button-3" href=""><img src="icon/Vector (2).svg" alt=""> Most Review</a>
+               </div>
+            </div>
+
+{#            <h2 class="price-range">Price Range: <span>From</span> 0 <span>to</span> 5000 <span>Taka</span> </h2>#}
+
+            <h2 class="filter">Filter by tags <i class="fas fa-caret-down"></i></h2>
+
+            <form method="get" id="filter_form">
+                <input type="hidden" value="{{ request.GET.query }}" name="query">
+                <div class="space-draw">
+                  <label for="vehicle2" class="checkbox-design">Min Price </label>&nbsp;&nbsp;
+                  <input type="number" onchange="this.form.submit()"id="Restaurant" name="min_price" value="{{ request.GET.min_price }}">
+               </div>
+                 <div class="space-draw">
+                  <label for="vehicle3" class="checkbox-design">Max Price</label>&nbsp;&nbsp;
+                  <input type="number" onchange="this.form.submit()" id="Bus Services" name="max_price" value="{{ request.GET.max_price }}">
+               </div>
+
+                <div class="space-draw">
+                   {% if request.GET.rated == "True" %}
+                  <input type="checkbox" id="Bus_Services" name="rated" value="True" checked>
+                   {% else %}
+                   <input type="checkbox" id="Bus_Services" name="rated" value="True">
+                   {% endif %}
+                  <label for="vehicle3" class="checkbox-design">Rated</label>
+               </div>
+
+            </form>
+             <div style="display: inline-flex;">
+             <h2 class="search-result" id="search-result" style="width: 540px;">{{ places.count }} Results found</h2>
+            <p id="left_viw"><i class="fas fa-angle-left fa-2x"></i></p>
+            <p id="right_viw"><i class="fas fa-angle-right fa-2x"></i></p>
+             </div>
+         </div>
+         </div>
+
+         <!-- place history start -->
+
+         <div class="Destination-place-history" id="Destination-place-history">
+            {% for p in places %}
+            <div class="Destination-place">
+               <img src="{{ p.image.url }}" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <a href="{% url 'place_details' p.id %}"><h2>{{ p.place_name }}</h2></a>
+                      <div class="more-info">
+                        <p class="rate">{{ p.count_avg_ratting }}</p>
+                        <p class="num-rat">{{ p.count_total_ratting }} Rating</p>
+                        <p class="money">From <span> {{ p.price }}/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">{{ p.description|slice:":120" }}</p>
+
+
+
+                  </div>
+               </article>
+
+
+            </div>
+            {% empty %}
+{#             <h5>Sorry,There is no places in your search location</h5>#}
+              <img src="{% static 'logo/images.png' %}">
+            {% endfor %}
+         </div>
+      </section>
+
+
+      <!-- map-image  -->
+
+      <section class="map" id="view_map">
+              <iframe
+      src={{ map_loc }}
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+    </section>
+
+
+   </main>
+
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+<script>
+var right=document.getElementById("right_viw");
+var left=document.getElementById("left_viw");
+var mapps=document.getElementById("view_map");
+var full_view=document.getElementById("Destination-place-history");
+var result_view=document.getElementById("search-result");
+    right.onclick=function(){
+    right.style.display="none";
+    left.style.display="block";
+    mapps.style.display="none";
+    full_view.style.gridTemplateColumns="repeat(4, 1fr)";
+    result_view.style.width="1040px";
+
+}
+    left.onclick=function(){
+    left.style.display="none";
+    right.style.display="block";
+    mapps.style.display="block";
+    full_view.style.gridTemplateColumns="repeat(2, 1fr)";
+    result_view.style.width="540px";
+}
+</script>
+<script>
+var form = document.getElementById("filter_form");
+document.getElementById("Bus_Services").addEventListener("click", function () {
+  form.submit();
+    {#alert("c")#}
+});
+</script>
+<!--sticky toggle-->
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+
+<script src="{% static '/Js/destination.js' %}" defer></script>
+<script src="{% static '/Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}

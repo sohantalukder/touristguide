@@ -1,0 +1,502 @@
+/* Fonts Import */
+@font-face {
+	font-family: 'Proxima Nova Regular';
+	src: url('../fonts/ProximaNova-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova SemiBold';
+	src: url('../fonts/ProximaNova-Semibold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Bold';
+	src: url('../fonts/ProximaNova-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Color */
+:root {
+	--primary: #5fbe00;
+	--secondary: #101b21;
+	--boxText: #5c5c5c;
+	--paragraph-text: #000000;
+	--danger: #ff0000;
+	--boxBackground: #f8f8f8;
+	--boxBackground: #f3f3f3;
+	--white: #ffffff;
+	--ternary: #c4c4c4;
+	--love: #ff6262;
+	--button-background-color: #fafafa;
+	--icon-colour: #4a4a4a;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 1140px;
+	margin: 0;
+	margin: auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*header part start----------------------------------------------------------------- */
+
+.header-part {
+	padding-top: 7%;
+}
+
+.all-button {
+	display: flex;
+	align-items: center;
+}
+
+/* dropdown menu work------------------------------------- */
+.dropbtn {
+	background-color: var(--button-background-color);
+	border: 1px solid var(--ternary);
+	box-sizing: border-box;
+	border-radius: 2px;
+	color: var(--paragraph-text);
+	padding: 13px 19px;
+	font-family: Proxima Nova Regular;
+	font-weight: 400px;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	line-height: 16px;
+	cursor: pointer;
+}
+.dropbtn img {
+	height: 6px;
+	width: 14px;
+	color: var(--paragraph-text);
+	padding-left: 44px;
+}
+
+.dropdown {
+	position: relative;
+	margin: 0;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 100%;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: var(--paragraph-text);
+	font-family: Proxima Nova Regular;
+	padding: 12px 10px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: var(--primary);
+	color: var(--white);
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+	display: block;
+}
+
+/* dropdown end */
+
+/* other button work start */
+.link-button-2,
+.link-button-3 {
+	font-family: 'Proxima Nova Regular';
+	text-decoration: none;
+	font-weight: 400px;
+	font-size: 12px;
+	line-height: 12px;
+	border-radius: 2px;
+	margin: 0;
+	margin-left: 10px;
+	color: var(--boxText);
+	border: 1px solid var(--ternary);
+	box-sizing: border-box;
+	padding: 14px 23px;
+}
+.link-button .link-button-1 {
+	font-family: 'Proxima Nova Regular';
+	text-decoration: none;
+	font-weight: 400px;
+	font-size: 12px;
+	line-height: 12px;
+	border-radius: 2px;
+	color: var(--white);
+	border: 1px solid var(--ternary);
+	box-sizing: border-box;
+	padding: 14px 22px;
+	background-color: var(--primary);
+}
+
+.link-button-1 .far {
+	padding: 0;
+	padding-right: 4px;
+}
+.link-button-2 .fas {
+	margin: 0;
+	padding: 0;
+	padding-right: 4px;
+}
+
+/* link-button work end */
+
+.header-part .price-range {
+	margin: 0;
+	margin-top: 14px;
+	padding-bottom: 37px;
+	border-bottom: 1px solid var(--ternary);
+}
+
+.header-part .price-range span {
+	color: var(--boxText);
+	font-size: 14px;
+}
+.header-part .search-result {
+	margin: 0;
+	padding-top: 27px;
+	padding-bottom: 20px;
+}
+.header-part .filter {
+	padding-top: 18px;
+	padding-bottom: 14px;
+}
+
+.header-part h2 {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+	font-family: Proxima Nova Regular;
+}
+
+form {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	line-height: 14px;
+	font-family: 'Proxima Nova Regular';
+	font-weight: 400;
+	color: var(--boxText);
+	margin: 0;
+	padding-bottom: 20px;
+	border-bottom: 1px solid var(--ternary);
+}
+.checkbox-design {
+	margin: 0;
+	padding-left: 7px;
+}
+.space-draw {
+	margin: 0;
+	padding-right: 22px;
+	display: flex;
+	align-items: center;
+}
+/* Found Result */
+.found-resutl {
+	display: flex;
+	justify-content: space-between;
+}
+#fullMenu {
+	border: 0;
+	width: 34px;
+	cursor: pointer;
+	background-color: #fff !important;
+}
+/* header part work end */
+
+/* article part start */
+
+.Destination-place {
+	border: 1px solid var(--ternary);
+	border-radius: 2px;
+}
+
+.Destination-place > img {
+	object-fit: center;
+}
+.destination-place-all-info {
+	padding: 13px;
+}
+.destination-place-all-info h2 {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	margin: 0;
+	padding: 0;
+	font-family: 'Proxima Nova SemiBold';
+}
+.more-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0;
+	padding-top: 7px;
+	padding-bottom: 10px;
+}
+.more-info .rate {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 17px;
+	font-family: 'Proxima Nova Regular';
+	color: var(--white);
+	background-color: var(--primary);
+	margin: 0;
+	padding: 0;
+	padding: 1px 6px;
+}
+.more-info .num-rat,
+.money {
+	font-size: 12px;
+	line-height: 12px;
+	font-weight: normal;
+	color: var(--boxText);
+	font-family: 'Proxima Nova Regular';
+	margin: 0;
+	padding: 0;
+	border-right: 1px solid var(--boxText);
+	padding-right: 10px;
+}
+.money span {
+	color: var(--danger);
+	font-size: 12px;
+	line-height: 12px;
+	font-weight: 400px;
+	margin: 0;
+	padding: 0;
+}
+
+.more-info .hotel-icon {
+	color: var(--boxText);
+	font-family: 'Proxima Nova Regular';
+	font-size: 12px;
+	line-height: 12px;
+	font-weight: 400px;
+	margin: 0;
+	padding: 0;
+}
+.more-info.hotel-icon,
+.fas {
+	color: var(--boxText);
+	width: 12px;
+	height: 10px;
+	padding-left: 11px;
+	margin: 0;
+	padding: 0;
+	padding-right: 11px;
+}
+.paragraph-content {
+	overflow: hidden;
+	font-size: 12px;
+	color: var(--paragraph-text);
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+	line-height: 13px;
+	font-family: 'Proxima Nova Regular';
+}
+
+.Destination-place-history {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 33px;
+	margin-bottom: 157px;
+}
+
+footer {
+	background-color: var(--secondary);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.footer-container {
+	width: 1140px;
+	margin: auto;
+	display: flex;
+	padding-top: 73px;
+	padding-bottom: 53px;
+}
+
+.footer-half-container {
+	position: relative;
+	width: 50%;
+}
+
+.footer-logo img {
+	position: absolute;
+	left: -6px;
+	width: 129px;
+	height: 26px;
+	object-fit: cover;
+	top: 4px;
+}
+
+.footer-logo a {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+.footer-article {
+	margin-top: 45px;
+	font-family: 'Proxima Nova Regular';
+	font-weight: 400;
+	color: var(--white);
+	font-size: 16px;
+	padding-right: 100px;
+	margin-bottom: 40px;
+}
+
+.footer-location p {
+	color: var(--white);
+	font-family: 'Proxima Nova Regular';
+	font-weight: 400;
+	text-align: left;
+	padding-bottom: 15px;
+	margin: 0;
+}
+.footer-location a {
+	color: var(--white);
+	font-family: 'Proxima Nova Regular';
+	font-weight: 400;
+	text-align: left;
+	text-decoration: none;
+}
+.footer-location .fas,
+.far {
+	color: var(--white);
+	font-size: 16px;
+	padding-right: 16px;
+}
+#active {
+	color: var(--primary);
+}
+.footer-social-icon .fab {
+	color: var(--white);
+	font-size: 16px;
+	margin-top: 20px;
+	padding-right: 15px;
+	transition: 0.3s all;
+}
+
+.footer-social-icon .fab:hover {
+	color: var(--primary);
+}
+
+.receive-update h1 {
+	color: var(--white);
+	font-family: 'Proxima Nova Bold';
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 20px;
+}
+.receive-update > div {
+	background-color: var(--white);
+	width: 570px;
+	height: 40px;
+	border-radius: 5px;
+}
+.receive-update input {
+	padding: 10px 0;
+	padding-left: 25px;
+	border: 0;
+	outline: 0;
+	color: var(--secondary);
+	font-size: 16px;
+	font-family: 'Proxima Nova Regular';
+	border-radius: 5px;
+}
+.receive-update a {
+	text-decoration: none;
+	color: var(--white);
+	font-family: 'Proxima Nova SemiBold';
+	font-size: 16px;
+	font-weight: 600;
+	text-align: right;
+	margin-left: 280px;
+	background-color: var(--secondary);
+	padding: 0.5rem 1.75rem;
+	border-radius: 5px;
+	transition: 0.3s all;
+}
+.receive-update a:hover {
+	background-color: var(--primary);
+}
+.footer-link {
+	display: grid;
+	margin-top: 43px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 40px;
+}
+.touristguide-link h3,
+.help-link h3,
+.about-us h3 {
+	font-family: 'Proxima Nova SemiBold';
+	font-size: 20px;
+	color: var(--white);
+	margin-bottom: 20px;
+}
+
+.touristguide-link li,
+.help-link li,
+.about-us li {
+	list-style: none;
+	margin-bottom: 10px;
+}
+.touristguide-link a,
+.help-link a,
+.about-us a {
+	text-decoration: none;
+	color: var(--white);
+	font-family: 'Proxima Nova Regular';
+	font-size: 16px;
+}
+.touristguide-link a:hover,
+.help-link a:hover,
+.about-us a:hover {
+	text-decoration: underline;
+}
+footer hr {
+	border: 1px solid var(--boxBackground);
+}
+
+.copyright {
+	text-align: center;
+	color: var(--white);
+	font-family: 'Proxima Nova Regular';
+	font-size: 16px;
+	padding: 31px 0;
+}
+.copyright a {
+	text-decoration: none;
+	color: var(--primary);
+	font-family: 'Proxima Nova Regular';
+	font-size: 16px;
+}
+
+a {
+	text-decoration: none;
+}

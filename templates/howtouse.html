@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/footer.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/howtouse.css' %}">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+<style>
+.receive-update a {
+    text-decoration: none;
+    color: var(--white);
+    font-family: 'Proxima Nova SemiBold';
+    font-size: 16px;
+    font-weight: 600;
+    text-align: right;
+    margin-left: 0px;
+    background-color: var(--secondary);
+    padding: 0.5rem 1.75rem;
+    border-radius: 5px;
+    transition: 0.3s all;
+}
+</style>
+{% endblock custom_css %}
+{% block title %}
+FAQ
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+  <section class="home-intro"></section>
+    <section class="container">
+    <div class="text">
+      <h1>How to use Tourist<span>Guide</span></h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quasi
+        doloribus suscipit, fuga repellat officia soluta accusamus labore
+        dolorum enim mollitia fugit, et placeat exercitationem sed unde natus
+        sequi? Numquam.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Justo aliquam vel, mauris dui enim accumsan, tellus ullamcorper ac.
+        Mattis amet gravida dignissim vel quis tortor. Vitae aenean magna nulla
+        massa amet id ultricies ac. Eget id etiam parturient sed in in. At
+        pellentesque porttitor lectus ut consectetur nibh nunc. Sed in consequat
+        hendrerit purus etiam ut consequat blandit arcu. Sit vestibulum
+        tincidunt at mattis suspendisse eget penatibus quis pellentesque.
+        Malesuada elit non in erat vitae massa nulla nascetur. Ultricies morbi
+        gravida bibendum morbi leo nunc, nisi. Urna, elit dignissim mauris
+        suscipit ut suscipit imperdiet pharetra ac. Erat in fusce nibh tellus
+        sollicitudin. Lectus convallis iaculis et viverra sit. Nullam elementum
+        sed accumsan eget. Interdum orci tincidunt mattis vel gravida aliquam
+        mattis. In parturient est pretium nibh massa ipsum. Nec sed id id
+        mauris, nunc pharetra. Lorem consequat et enim ipsum tincidunt. Nunc,
+        diam mi magnis ipsum etiam eget. Ac leo lectus bibendum erat nisi,
+        suspendisse.
+      </p>
+    </div>
+
+    <div class="intro">
+     <iframe width="590" height="338" src="https://www.youtube.com/embed/KGnu74AxZW4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+      
+    </section>
+    
+<!--Main part-->
+<main onMouseOver="removePopup()">
+      <section class="home-intro"></section>
+    </main>  
+
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+    <script src="{% static 'Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}
+
+

@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/Full destination menu.css' %}">
+<style>
+.Destination-place > img {
+    width: 270px;
+    height: 185px;
+    object-fit: center;
+}
+</style>
+<style>
+.pagination {
+  display: inline-block;
+    margin: 3% 7%;
+}
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+}
+</style>
+{% endblock custom_css %}
+{% block title %}
+Search place
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+
+
+
+   <main  class="container">
+      <section class="home-intro"></section>
+      <section class="header-part">
+         <div class="all-button home-intro">
+            <div class="dropdown ">
+               <button  onclick="myFunction()" class="dropbtn" > All Category
+                  <img src="{% static '/icon/destination-arrow.svg' %}" alt=""></button>
+               <div  id="myDropdown" class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+               </div>
+            </div>
+
+            <div class="link-button">
+               <a class="link-button-1" href=""><i class="far fa-clock"></i>Open Now</a>
+               <a class="link-button-2" href=""><i class="fas fa-star"></i>High Rated</a>
+               <a class="link-button-3" href=""><img src="{% static '/icon/desination-message.svg' %}"  alt=""> Most Review</a>
+            </div>
+         </div>
+
+         <h2 class="price-range">Price Range: <span>From</span> 0 <span>to</span> 5000 <span>Taka</span> </h2>
+
+         <h2 class="filter">Filter by tags <i class="fas fa-caret-down"></i></h2>
+
+<form method="get" id="filter_form">
+                <input type="hidden" value="{{ request.GET.query }}" name="query">
+                <div class="space-draw">
+                  <label for="vehicle2" class="checkbox-design">Min Price </label>&nbsp;&nbsp;
+                  <input type="number" id="Restaurant" onchange="this.form.submit()" name="min_price" value="{{ request.GET.min_price }}">
+               </div>
+                 <div class="space-draw">
+                  <label for="vehicle3" class="checkbox-design">Max Price</label>&nbsp;&nbsp;
+                  <input type="number" id="Bus Services" onchange="this.form.submit()" name="max_price" value="{{ request.GET.max_price }}">
+               </div>
+
+                <div class="space-draw">
+                   {% if request.GET.rated == "True" %}
+                  <input type="checkbox" id="Bus_Services" name="rated" value="True" checked>
+                   {% else %}
+                   <input type="checkbox" id="Bus_Services" name="rated" value="True">
+                   {% endif %}
+                  <label for="vehicle3" class="checkbox-design">Rated</label>
+               </div>
+            </form>
+
+         <h2 class="search-result">{{ all_place.count }} Results found</h2>
+         </div>
+      </section>
+
+      <section class="Destination-place-history">
+        {% for p in all_place %}
+         <div class="Destination-place">
+            <img src="{{ p.image.url }}" alt="">
+
+             <article>
+                  <div class="destination-place-all-info">
+                     <a href="{% url 'place_details' p.id %}"><h2 style="color: #000000;">{{ p.place_name }}</h2></a>
+                     <div class="more-info">
+                        <p class="rate">{{ p.count_avg_ratting }}</p>
+                        <p class="num-rat">{{ p.count_total_ratting }} Rating</p>
+                        <p class="money">From <span> {{ p.price }}/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">{{ p.description|slice:":120" }}</p>
+
+
+
+                  </div>
+               </article>
+
+         </div>
+        {% empty %}
+          <h4>There is no Place in this page</h4>
+        {% endfor %}
+      </section>
+{% if all_place.has_other_pages %}
+    <div class="pagination">
+    {% if all_place.has_previous %}
+      <a href="?page={{ all_place.previous_page_number }}">&laquo;</a>
+    {% else %}
+      <a href=""class="isDisabled">&laquo;</a>
+    {% endif %}
+    {% for i in all_place.paginator.page_range %}
+      {% if all_place.number == i %}
+          <a class="active" href="#">{{ i }}</a>
+      {% else %}
+        <a href="?page={{ i }}">{{ i }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if all_place.has_next %}
+      <a href="?page={{ all_place.next_page_number }}">&raquo;</a>
+    {% else %}
+      <a href="#"class="isDisabled">&raquo;</a>
+    {% endif %}
+
+    </div>
+{% endif %}
+
+   </main>
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+<script>
+var form = document.getElementById("filter_form");
+document.getElementById("Bus_Services").addEventListener("click", function () {
+  form.submit();
+    {#alert("c")#}
+});
+</script>
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+
+<script src="{% static '/Js/full-destination-menu.js' %}" defer></script>
+<script src="{% static 'static/Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}

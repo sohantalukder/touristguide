@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Form</title>
+    <link rel="stylesheet" href="./StyleSheet/sgin-in.css">
+    <link rel="stylesheet" href="./StyleSheet/nav2.css">
+   <script src="https://kit.fontawesome.com/e6287c4adb.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+<header>
+<!--navbar-->
+<div class="nav container">
+  <a
+    onMouseOver="removePopup()"
+    href="#"
+    class="site-logo"
+    aria-label="homepage"
+    ><img src="logo/Black logo.svg" alt="Tourist Guide Logo"
+  /></a>
+  <nav class="main-nav">
+  <fieldset class="search-field">
+      <div class="searchMain">
+        <label for="searchFood">What:</label>
+        <input
+          type="text"
+          name=""
+          id="searchFood"
+          placeholder="Ex: Famous Food, Famous Place, Way Path"
+        />
+      </div>
+      <div class="search-bar-hr">
+        <p>|</p>
+      </div>
+      <div class="search-location">
+        <label for="searchLocation">Where:</label>
+        <input
+          type="text"
+          name=""
+          placeholder="Location"
+          id="searchLocation"
+        />
+      </div>
+      <button onclick="window.location.href = 'destination.html'" class="search-btn"><i class="fas fa-search"></i></button>
+    </fieldset>
+  </nav>
+  <nav class="account" onMouseOver="removePopup()">
+    <ul class="nav__list">
+      <li class="nav__list-item" onMouseOver="removePopup()">
+          <a href="home.html" class="nav__link">Home</a>
+        </li>
+        <li class="nav__list-item" onMouseOver="removePopup()">
+          <a href="signin.html" class="nav__link">Sign In</a>
+        </li>
+        <div class="dropdown" onMouseOver="handlePopup()">
+          <li class="nav__list-item active">
+            <a href="registration.html" class="nav__link"
+              >Register</i
+            ></a>
+          </li>
+    </ul>
+  </nav>
+</div>
+
+</header>
+
+<!--Main Body-->
+<section class="home-intro"></section>
+<section class="container">
+     <div class="tour">
+       <h1 class="welcome">Welcome to Tourist<span>Guide</span></h1>
+         <p>Our goal is to get to the place of your choice very easily and let
+         <br>
+         you enjoy the natural beauty of Bangladesh.
+        </p>
+       <img  src="./img/sign-in-illustration.svg" alt="">
+     </div>
+
+    <div class="signin">
+     <h1><span>Sign In</span></h1>
+      <div class="input-name">
+       <input class="input-box" type="text" placeholder="Name">
+       <input class="input-box" type="password" placeholder="Password">
+       <div class="checkbox">
+        <input type="checkbox" id="rememberme" name="vehicle2" value="Car">
+        <label for="rememberme" class="remember">Remember Me</label>
+         <p class="forget_pass"  > <a href="#">Forget Password</a> </s>
+       </div>
+        <div>
+       <button class="login-btn">Log In</button>
+       </div>
+
+       <div class="scale">
+         <div id="line1"></div>
+         <div id='scalep'> <p>Or Sign In With</p></div>
+          <div id="line2"></div>
+       </div>
+
+        <button class="google" ><i class="fab fa-google"></i>
+        Sign up with Google</button>
+        </div>  
+        <p class="register">Don't have any account ?  <a href="./registration.html"><span> Register</span></a></p>
+    </div>
+
+</section>
+
+<!--Main part-->
+<main >
+      <section class="home-intro"></section>
+    </main>  
+
+    <!--Footer-->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-half-container">
+          <div class="footer-logo">
+            <a href="./home.html"
+              ><img class="footer-logo" src="./logo/White Logo.svg" alt=""
+            /></a>
+          </div>
+          <article>
+            <p class="footer-article">
+              We earned a reputation of being good at what we do. Let us take
+              your online shop to new dimension in success!
+            </p>
+            <div class="footer-location">
+              <p>
+                <i class="fas fa-map-marker-alt"></i>Ashulia, Dhaka, Bnagladesh
+                1400
+              </p>
+              <p>
+                <a href="touristguide@gmail.com"
+                  ><i class="far fa-envelope-open"></i
+                    ></i>touristguide@gmail.com</a
+                >
+              </p>
+              <p>
+                <a href="+8801865748726"
+                  ><i class="fas fa-mobile-alt"></i>+88 01865748726</a
+                >
+              </p>
+            </div>
+            <div class="footer-social-icon">
+              <a href="#"><i class="fab fa-facebook" id="active"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="footer-half-container">
+          <div class="receive-update">
+            <h1>RECEIVE EMAIL UPDATES</h1>
+            <div>
+                <input type="email" placeholder="Your Email Address" required />
+            <a href="#">Join</a>
+            </div>
+          </div>
+    <div class="footer-link">
+        <div class="touristguide-link">
+            <h3>Tourist Guide</h3>
+            <ul>
+              <li><a href="../About-us.html">About Us</a></li>
+              <li><a href="./Gallery.html">Gallery</a></li>
+              <li><a href="./home.html">Home</a></li>
+              <li><a href="./Create-Event.html">Create Event</a></li>
+              <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="help-link">
+            <h3>Help</h3>
+            <ul>
+              <li><a href="../FAQ.html">FAQ</a></li>
+              <li><a href="../Trems-conditions.html">Terms and conditions</a></li>
+              <li><a href="">Chat with TouristGuide</a></li>
+              <li><a href="../howtouse.html">How To Use</a></li>
+            </ul>
+          </div>
+          <div class="about-us">
+            <h3>About</h3>
+            <ul>
+              <li><a href="./feedback.html">Share History</a></li>
+              <li><a href="./profile-event.html">Profile</a></li>
+              <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+          </div>
+    </div>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">
+        Copyright © 2020 . <a href="#">Tourist Guide</a> All rights reserved
+      </p>
+    </footer>
+
+
+<!--sticky toggle-->
+  <script type ="text/javascript">
+      window.addEventListener("scroll", function(){
+       var header = document.querySelector("header");
+       header.classList.toggle("sticky", window.scrollY > 0);
+      })
+    </script>
+    <script src="./Js/nav2.js"></script>
+</body>
+</html>

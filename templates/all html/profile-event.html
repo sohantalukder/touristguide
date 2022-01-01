@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile Event - Tourist Guide</title>
+    <link rel="stylesheet" href="StyleSheet/profile-event.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a
+              onMouseOver="removePopup()"
+              href="#"
+              class="site-logo"
+              aria-label="homepage"
+              ><img src="logo/Black logo.svg" alt="Tourist Guide Logo"
+            /></a>
+            <nav class="main-nav">
+            <fieldset class="search-field">
+                <div class="searchMain">
+                  <label for="searchFood">What:</label>
+                  <input
+                    type="text"
+                    name=""
+                    id="searchFood"
+                    placeholder="Ex: Famous Food, Famous Place, Way Path"
+                  />
+                </div>
+                <div class="search-bar-hr">
+                  <p>|</p>
+                </div>
+                <div class="search-location">
+                  <label for="searchLocation">Where:</label>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="Location"
+                    id="searchLocation"
+                  />
+                </div>
+                <button onclick="window.location.href = 'destination.html'" class="search-btn"><i class="fas fa-search"></i></button>
+              </fieldset>
+            </nav>
+            <nav class="account" onMouseOver="removePopup()">
+              <ul class="nav__list">
+                <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="home.html" class="nav__link">Home</a>
+                  </li>
+                  <li class="nav__list-item" onMouseOver="removePopup()">
+                    <a href="signin.html" class="nav__link">Sign In</a>
+                  </li>
+                  <div class="dropdown" onMouseOver="handlePopup()">
+                    <li class="nav__list-item active">
+                      <a href="registration.html" class="nav__link"
+                        >Register</i
+                      ></a>
+                    </li>
+              </ul>
+            </nav>
+          </div>
+      </header>
+      <main onMouseOver="removePopup()">
+        <section class="home-intro"></section>
+      </main>
+    <main class="container">
+        <section>
+            <div class="profile-blog-information-row">
+
+                <div class="profile-blog-information-left">
+
+                    <img src="image/Profile/profile.png" alt="">
+
+                    <div class="profile-info">
+                        <h2>Md. Sabbir Ahmed</h2>
+                        <h4 class="email">sabbir.ahmed@gmail.com</h4>
+                        <h4 class="address">Dhaka,Bangladesh</h4>
+                        <a class="profile-btn" href="./edit-profile.html">Edit Profile</a>
+                    </div>
+
+                </div>
+
+                <div class="profile-blog-information-right">
+
+                    <div class="list-property">
+                        <ul>
+                            <li>Gender</li>
+                            <li>Age</li>
+                            <li>Famous Food</li>
+                            <li>Famous Place</li>
+                            <li>Contact Number</li>
+                        </ul>
+                    </div>
+
+                    <div class="list-value">
+                        <ul>
+                            <li>Male</li>
+                            <li>22</li>
+                            <li>Fried Rice</li>
+                            <li>Dohar</li>
+                            <li>018657000000</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+
+        <section class="middle-nav">
+
+            <nav class="account" >
+                <ul class="profile-link__list ">
+                    <li class="profile-link__list-item" >
+                        
+                        <p id="profile-post" class="profile-link ">Blog Post</p>
+                    </li>
+                    <li class="profile-link__list-item" >
+                        
+                        <p id="event" class="profile-link ">Event</p>
+                    </li>
+                    <li class="profile-link__list-item" >
+
+                        
+                        <p class="profile-link">Chat with Guiders</p>
+
+                    </li>
+                </ul>
+
+            </nav>
+
+        </section>
+
+
+
+        <section id="event-section">
+
+            <div class="profile-event-history">
+                <div class="profile-event">
+                    <div class="upar-cross-icon"><i class="fas fa-times-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="profile-event">
+                    <div class="upar-tick-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="profile-event">
+                    <div class="upar-tick-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="profile-event">
+                    <div class="upar-cross-icon"><i class="fas fa-times-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="profile-event">
+                    <div class="upar-tick-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+    
+    
+                <div class="profile-event">
+                    <div class="upar-tick-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+    
+    
+    
+                <div class="profile-event">
+                    <div class="upar-cross-icon"><i class="fas fa-times-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+    
+    
+                <div class="profile-event">
+                    <div class="upar-tick-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+    
+    
+                <div class="profile-event">
+                    <div class="upar-tick-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="profile-event-info">
+                        <h2 class="place-name">Nil Pukur</h2>
+                        <h3 class="date">19 June 2021, 5 Person</h3>
+                        <p class="place-description">Nill pukur is the most famous Place in our country. Nill pukur is the
+                            most
+                            famous Place in our country. .
+                            Nill pukur is the most famous Place in our country. .</p>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h5>Mitha Pukur, Rangpur</h5>
+    
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+
+        </section>
+        <section id="profile-blog">
+            <div class="people-visited-history ">
+                <div class="visited-place">
+
+                    <img src="./image/galary/‫image-1.jpg" alt="">
+        
+        
+                    <!-- people suggestion part -->
+                    <article class="people-review ">
+                       <div class="people-suggestions">
+                          <div class="People-identity">
+                             <img src="image/Profile/profile.png" alt="">
+                             <h3>Sharmin Jahan </h3>
+        
+                          </div>
+                          <div class="react-number">
+                             <i class="fas fa-heart"></i>
+                             <p>10 K</p>
+                          </div>
+                       </div>
+        
+        
+                       <!-- tourist place location -->
+                       <div class="location">
+                          <p><i class="fas fa-map-marker-alt"></i> Lalbag</p>
+                       </div>
+        
+        
+                       <p class="paragraph-content">Subahdar Muhammad Azam Shah Lalbagh Fort (also Fort Aurangabad) is an
+                          incomplete 17th-century Mughal fort complex that stands before the Buriganga River in the southwestern
+                          part of Dhaka, Bangladesh.</p>
+        
+                    </article>
+                 </div>
+        
+                 <div class="visited-place">
+        
+                    <img src="./image/galary/‫image-1.jpg" alt="">
+        
+        
+                    <!-- people suggestion part -->
+                    <article class="people-review ">
+                       <div class="people-suggestions">
+                          <div class="People-identity">
+                             <img src="image/Profile/profile.png" alt="">
+                             <h3>Sharmin Jahan </h3>
+        
+                          </div>
+                          <div class="react-number">
+                             <i class="fas fa-heart"></i>
+                             <p>10 K</p>
+                          </div>
+                       </div>
+        
+        
+                       <!-- tourist place location -->
+                       <div class="location">
+                          <p><i class="fas fa-map-marker-alt"></i> Lalbag</p>
+                       </div>
+        
+        
+                       <p class="paragraph-content">Subahdar Muhammad Azam Shah Lalbagh Fort (also Fort Aurangabad) is an
+                          incomplete 17th-century Mughal fort complex that stands before the Buriganga River in the southwestern
+                          part of Dhaka, Bangladesh.</p>
+        
+                    </article>
+                 </div>
+        
+                 <div class="visited-place">
+        
+                    <img src="./image/galary/‫image-1.jpg" alt="">
+        
+        
+                    <!-- people suggestion part -->
+                    <article class="people-review ">
+                       <div class="people-suggestions">
+                          <div class="People-identity">
+                             <img src="image/Profile/profile.png" alt="">
+                             <h3>Sharmin Jahan </h3>
+        
+                          </div>
+                          <div class="react-number">
+                             <i class="fas fa-heart"></i>
+                             <p>10 K</p>
+                          </div>
+                       </div>
+        
+        
+                       <!-- tourist place location -->
+                       <div class="location">
+                          <p><i class="fas fa-map-marker-alt"></i> Lalbag</p>
+                       </div>
+        
+        
+                       <p class="paragraph-content">Subahdar Muhammad Azam Shah Lalbagh Fort (also Fort Aurangabad) is an
+                          incomplete 17th-century Mughal fort complex that stands before the Buriganga River in the southwestern
+                          part of Dhaka, Bangladesh.</p>
+        
+                    </article>
+                 </div>
+        
+                 <div class="visited-place">
+        
+                    <img src="./image/galary/‫image-1.jpg" alt="">
+        
+        
+                    <!-- people suggestion part -->
+                    <article class="people-review ">
+                       <div class="people-suggestions">
+                          <div class="People-identity">
+                             <img src="image/Profile/profile.png" alt="">
+                             <h3>Sharmin Jahan </h3>
+        
+                          </div>
+                          <div class="react-number">
+                             <i class="fas fa-heart"></i>
+                             <p>10 K</p>
+                          </div>
+                       </div>
+        
+        
+                       <!-- tourist place location -->
+                       <div class="location">
+                          <p><i class="fas fa-map-marker-alt"></i> Lalbag</p>
+                       </div>
+        
+        
+                       <p class="paragraph-content">Subahdar Muhammad Azam Shah Lalbagh Fort (also Fort Aurangabad) is an
+                          incomplete 17th-century Mughal fort complex that stands before the Buriganga River in the southwestern
+                          part of Dhaka, Bangladesh.</p>
+        
+                    </article>
+                 </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+    <footer>
+        <div class="footer-container">
+          <div class="footer-half-container">
+            <div class="footer-logo">
+              <a href="./home.html"
+                ><img class="footer-logo" src="./logo/White Logo.svg" alt=""
+              /></a>
+            </div>
+            <article>
+              <p class="footer-article">
+                We earned a reputation of being good at what we do. Let us take
+                your online shop to new dimension in success!
+              </p>
+              <div class="footer-location">
+                <p>
+                  <i class="fas fa-map-marker-alt"></i>Ashulia, Dhaka, Bnagladesh
+                  1400
+                </p>
+                <p>
+                  <a href="touristguide@gmail.com"
+                    ><i class="far fa-envelope-open"></i
+                      ></i>touristguide@gmail.com</a
+                  >
+                </p>
+                <p>
+                  <a href="+8801865748726"
+                    ><i class="fas fa-mobile-alt"></i>+88 01865748726</a
+                  >
+                </p>
+              </div>
+              <div class="footer-social-icon">
+                <a href="#"><i class="fab fa-facebook" id="active"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="footer-half-container">
+            <div class="receive-update">
+              <h1>RECEIVE EMAIL UPDATES</h1>
+              <div>
+                  <input type="email" placeholder="Your Email Address" required />
+              <a href="#">Join</a>
+              </div>
+            </div>
+      <div class="footer-link">
+          <div class="touristguide-link">
+              <h3>Tourist Guide</h3>
+              <ul>
+                <li><a href="../About-us.html">About Us</a></li>
+                <li><a href="./Gallery.html">Gallery</a></li>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./Create-Event.html">Create Event</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="help-link">
+              <h3>Help</h3>
+              <ul>
+                <li><a href="../FAQ.html">FAQ</a></li>
+                <li><a href="../Trems-conditions.html">Terms and conditions</a></li>
+                <li><a href="">Chat with TouristGuide</a></li>
+                <li><a href="../howtouse.html">How To Use</a></li>
+              </ul>
+            </div>
+            <div class="about-us">
+              <h3>About</h3>
+              <ul>
+                <li><a href="./feedback.html">Share History</a></li>
+                <li><a href="./profile-event.html">Profile</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+              </ul>
+            </div>
+      </div>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">
+          Copyright © 2020 . <a href="#">Tourist Guide</a> All rights reserved
+        </p>
+      </footer>
+
+
+<script src="./js/profile-event.js"></script>
+</body>
+
+</html>

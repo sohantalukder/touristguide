@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback - Tourist Guide</title>
+    <!-- Favicon   -->
+    <link
+      rel="shortcut icon"
+      href="./favicon/facicon.svg"
+      type="image/x-icon"
+    />
+    <!-- font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/7e1812adc5.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- StyleSheet - -->
+    <link rel="stylesheet" href="./StyleSheet/feedback.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <!-- Navbar -->
+      <div class="nav container">
+        <a href="#" class="site-logo" aria-label="homepage"
+          ><img src="./logo/Black logo.svg" alt="Tourist Guide Logo"
+        /></a>
+        <nav class="main-nav">
+          <fieldset class="search-field">
+            <div class="searchMain">
+              <label for="searchFood">What:</label>
+              <input
+                type="text"
+                name=""
+                id="searchFood"
+                placeholder="Ex: Famous Food, Famous Place, Way Path"
+              />
+            </div>
+            <div class="search-bar-hr">
+              <p>|</p>
+            </div>
+            <div class="search-location">
+              <label for="searchLocation">Where:</label>
+              <input
+                type="text"
+                name=""
+                placeholder="Location"
+                id="searchLocation"
+              />
+            </div>
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </fieldset>
+        </nav>
+        <nav class="account">
+          <ul class="nav__list">
+            <li class="nav__list-item">
+              <a href="#" class="nav__link">Home</a>
+            </li>
+            <li class="nav__list-item">
+              <a href="#" class="nav__link">Sign In</a>
+            </li>
+            <li class="nav__list-item active">
+              <a href="#" class="nav__link">Register</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section>
+        <!--Main Body-->
+        <div class="container">
+          <div class="feedback">
+            <!-- Heading -->
+            <article class="main-heading-black home-intro">
+              <h1>
+                Feel free to drop your journey experience and your journey
+                picture.
+              </h1>
+              <p>We are looking forward to hearing back from you.</p>
+            </article>
+
+            <!-- Feedback-Container -->
+            <div class="feedback-container">
+              <div class="upload-container">
+                <div class="bg-img">
+                  <div class="drag-area">
+                    <button class="upload-file">
+                      <span class="upload-btn">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        Browse folders here
+                      </span>
+                      <span class="upload-select-button" id="blankFile"
+                        >Supports JPG, JPG2000 and PNG</span
+                      >
+                      <span class="success"
+                        ><i class="far fa-check-circle"></i
+                      ></span>
+                    </button>
+                    <input type="file" name="select-file" id="selectFile" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-container">
+                <div class="form-control">
+                  <h3>Options</h3>
+                  <hr />
+                  <div class="feedback-field">
+                    <p class="paragraph">Your Name</p>
+                    <input
+                      class="intname"
+                      id="intname"
+                      type="text"
+                      placeholder=" Your Name"
+                    />
+                    <p class="paragraph">Your Experience</p>
+                    <textarea
+                      name="exp"
+                      id="exp"
+                      cols="30"
+                      rows="10"
+                      placeholder=" Your Experience"
+                    ></textarea>
+                  </div>
+
+                  <div class="category-privacy">
+                    <div class="category">
+                      <p class="paragraph">Category</p>
+                      <div class="category-field main-input-field">
+                        <div class="dropdown">
+                          <div class="select">
+                            <span>Select Option</span>
+                            <i class="fa fa-chevron-left"></i>
+                          </div>
+                          <input type="hidden" name="gender" />
+                          <ul class="dropdown-menu">
+                            <li id="male">Journey</li>
+                            <li id="female">Guiders</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="privacy">
+                      <p class="paragraph">Privacy</p>
+                      <div class="category-field main-input-field">
+                        <div class="dropdown">
+                          <div class="select">
+                            <span>Select Option</span>
+                            <i class="fa fa-chevron-left"></i>
+                          </div>
+                          <input type="hidden" name="gender" />
+                          <ul class="dropdown-menu">
+                            <li id="male">Share Experience</li>
+                            <li id="female">Not Share Experience</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="upload-cancel">
+                    <button id="upload">Upload</button>
+                    <button id="cancel">Cancel</button>
+                  </div>
+
+                  <p class="problems-p">
+                    Having problems? <a href="#"><span>Contact Us</span> </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-half-container">
+          <div class="footer-logo">
+            <a href="#"
+              ><img class="footer-logo" src="./logo/White Logo.svg" alt=""
+            /></a>
+          </div>
+          <article>
+            <p class="footer-article">
+              We earned a reputation of being good at what we do. Let us take
+              your online shop to new dimension in success!
+            </p>
+            <div class="footer-location">
+              <p>
+                <i class="fas fa-map-marker-alt"></i>Ashulia, Dhaka, Bangladesh
+                1400
+              </p>
+              <p>
+                <a href="touristguide@gmail.com"
+                  ><i class="far fa-envelope-open"></i>touristguide@gmail.com</a
+                >
+              </p>
+              <p>
+                <a href="+8801865748726"
+                  ><i class="fas fa-mobile-alt"></i>+88 01865748726</a
+                >
+              </p>
+            </div>
+            <div class="footer-social-icon">
+              <a href="#"><i class="fab fa-facebook" id="active"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </article>
+        </div>
+        <div class="footer-half-container">
+          <div class="receive-update">
+            <h1>RECEIVE EMAIL UPDATES</h1>
+            <div>
+              <input type="email" placeholder="Your Email Address" required />
+              <a href="#">Join</a>
+            </div>
+          </div>
+          <div class="footer-link">
+            <div class="touristguide-link">
+              <h3>Tourist Guide</h3>
+              <ul>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Home</a></li>
+                <li><a href="">Create Event</a></li>
+                <li><a href="">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="help-link">
+              <h3>Help</h3>
+              <ul>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Terms and conditions</a></li>
+                <li><a href="">Chat with TouristGuide</a></li>
+                <li><a href="">How To Use</a></li>
+              </ul>
+            </div>
+            <div class="about-us">
+              <h3>About</h3>
+              <ul>
+                <li><a href="">Share History</a></li>
+                <li><a href="">Profile</a></li>
+                <li><a href="">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">
+        Copyright © 2020 . <a href="#">Tourist Guide</a> All rights reserved
+      </p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./Js/feedback.js"></script>
+    <script src="./Js/nav2.js"></script>
+  </body>
+</html>

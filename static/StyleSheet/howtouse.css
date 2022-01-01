@@ -1,0 +1,67 @@
+/* Fonts Import */
+@font-face {
+	font-family: 'Proxima Nova Regular';
+	src: url('../fonts/ProximaNova-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova SemiBold';
+	src: url('../fonts/ProximaNova-Semibold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova Bold';
+	src: url('../fonts/ProximaNova-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* color */
+
+:root {
+	--primary: #101b21;
+	--seconday: #5fbe00;
+	--ternary: #5c5c5c;
+	--pure: #ffff;
+	--black: #000000;
+	--line: #a9a9a9;
+	--text: #808080;
+}
+
+.container {
+	display: flex;
+	width: 1140px;
+	margin: auto;
+	grid-gap: 70px;
+}
+/* Navbar */
+
+/* Main body */
+.text {
+	margin-top: 120px;
+	margin-bottom: 115px;
+}
+h1 {
+	font-family: Proxima Nova Bold;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 49px;
+	color: var(--primary);
+}
+span {
+	color: var(--seconday);
+}
+p {
+	font-family: Proxima Nova Regular;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 16px;
+	text-align: justify;
+}
+.intro {
+	margin-top: 110px;
+}

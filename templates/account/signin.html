@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static '/StyleSheet/sgin-in.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+    <style>
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+{% endblock custom_css %}
+{% block title %}
+Signin
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+
+<section class="container">
+  <div class="tour">
+    <h1 class="welcome">Welcome to Tourist<span>Guide</span></h1>
+    <p>Our goal is to get to the place of your choice very easily and let
+      <br>
+      you enjoy the natural beauty of Bangladesh.
+    </p>
+
+    <img src="{% static '/img/sign-in-illustration.svg' %}" alt="">
+  </div>
+
+  <div class="signin">
+    <h1><span>Sign In</span></h1>
+    <div class="input-name">
+        {% for message in messages %}
+            {%if "login" in message.tags %}
+          <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>Error!</strong> {{ message }}
+        </div>
+        {% endif %}
+        {% endfor %}
+
+      <form action="" method="POST">
+        {% csrf_token %}
+        {{form.username}}
+        {{form.password}}
+        <div class="checkbox">
+          <input type="checkbox" id="rememberme" name="vehicle2" value="Car">
+          <label for="rememberme" class="remember">Remember Me</label>
+          <p class="forget_pass"> <a href="{% url 'password_reset' %}">Forget Password</a> </s>
+        </div>
+        <div>
+          <button type="submit" id="" class="login-btn">Log In</button>
+        </div>
+
+        <div class="scale">
+          <div id="line1"></div>
+          <div id='scalep'>
+            <p>Or Sign In With</p>
+          </div>
+          <div id="line2"></div>
+        </div>
+
+        <button class="google"><i class="fab fa-google"></i>
+          Sign up with Google</button>
+
+      </form>
+    </div>
+    <p class="register" style="background:none">Don't have any account ? <a href="{% url 'registration' %}"><span>
+          Register</span></a></p>
+  </div>
+
+</section>
+
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+
+<script src="{% static '\Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}

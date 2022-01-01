@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static '/StyleSheet/registration.css' %}">
+
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+{% endblock custom_css %}
+{% block title %}
+Registration
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+
+<!--Main part-->
+<div class="home-intro container">
+  <div class="tour">
+    <h1 class="welcome">Welcome to Tourist<span>Guide</span></h1>
+    <p>Our goal is to get to the place of your choice very easily and let
+      <br>
+      you enjoy the natural beauty of Bangladesh.
+    </p>
+    <img src="{% static '/img/sign-in-illustration.svg' %}" alt="">
+  </div>
+
+
+
+  <div class="form" style="margin-bottom:4rem;">
+    <h3>START FOR FREE</h3>
+    <h1 class="signuptext">Sign Up To Tourist<span>Guide</span> </h1>
+    <div class="member">
+      <p>Already a member? <a href="{% url 'signin' %}"><span>Log In</span></a></p>
+    </div>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="input-name">
+        <div>
+          <p>Name:</p>
+          {{forms.name}}
+        </div>
+        <div>
+          <p>Username:</p>
+          {{forms.username}}
+        </div>
+        <div>
+          <p>Email:</p>
+          {{forms.email}}
+        </div>
+        <div>
+          <p>Contact Number:</p>
+          {{forms.contact_number}}
+        </div>
+
+        <div class="favourite">
+          <div class="item">
+            <p>Favt. Food:</p>
+            {{forms.favt_food}}
+          </div>
+          <div class="item">
+            <p>Favt. Place:</p>
+            {{forms.favt_place}}
+          </div>
+
+        </div>
+        <p>Password:</p>
+        {{forms.password1}}
+        <i class="bi bi-eye-slash" id="togglePassword"></i>
+
+        <!--password-->
+        <p>Confirm Password:</p>
+
+        {{forms.password2}}
+        <i class="bi bi-eye-slash" id="toggle2Password"></i>
+      </div>
+      <div>
+        <input type="checkbox" id="conditions" name="conditions" value="account">
+        <label for="conditions"> I Agree To The All Terms & conditions </label><br>
+      </div>
+      <button type="submit" id="" class="account-btn"> Create an account</a></button>
+
+    </form>
+    <!-- <button class="google"> <a href="#"> <i class="fab fa-google"></i>
+        Sign up with Google</button> -->
+
+  </div>
+
+</div>
+</section>
+
+
+
+
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+
+<script src="{% static '\Js\registration.js' %}"></script>
+<script src="{% static 'static/Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}
+
+</body>
+
+</html>

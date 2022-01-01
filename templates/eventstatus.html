@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+{#<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">#}
+<link rel="stylesheet" href="{% static '/StyleSheet/Gallery.css' %}">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+
+{% endblock custom_css %}
+{% block title %}
+guider place
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+   <main onMouseOver="removePopup()" class="container">
+      
+      <section class="header-part home-intro">
+
+         <div >
+            <h1>Event Title : {{ f }}</h1>
+         <p>{{ f.slug }}</p>
+         </div>
+        <table>
+  <tr>
+    <th>User</th>
+    <th>Full Price</th>
+    <th>Your Amount 80%</th>
+    <th>Date</th>
+    <th>Status</th>
+  </tr>
+{% for i in orders %}
+  <tr>
+    <td>{{ i.user }}</td>
+    <td>{{ i.ammount }}</td>
+    <td>{{ i.get_eighty_percentage }}</td>
+    <td>{{ i.created }}</td>
+    <td>
+        {% if i.ordered == True %}
+        <i class="fa fa-check-circle" style="color: green;"></i>
+        {% else %}
+        <i class="fa fa-clock" style="color: red;"></i>
+        {% endif %}
+    </td>
+  </tr>
+{% endfor %}
+</table>
+      </section>
+      <section class="people-visited-history">
+
+
+
+      </section>
+       </div>
+   </main>
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+    <script src="{% static 'js/gallery.js' %}"></script>
+{% endblock custom_javascripts %}

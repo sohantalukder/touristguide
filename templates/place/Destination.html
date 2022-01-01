@@ -1,0 +1,324 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static '/StyleSheet/nav2.css' %}">
+<link rel="stylesheet" href="{% static '/StyleSheet/Destination.css' %}">
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+{% endblock custom_css %}
+{% block title %}
+Search place
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar_all.html' %}
+{% endblock navbar %}
+
+
+{% block main_content %}
+   <main onMouseOver="removePopup()" class="container main-part">
+      <section class="home-intro"></section>
+      <section class="container-width">
+         <div class="header-part">
+            <div class="all-button">
+               <div class="dropdown">
+
+
+                     <select name="cars" id="myDropdown" class="dropdown-content">
+                        <option value="all-category">All Category</option>
+                        <option value="premium">Premium</option>
+                        <option value="economy">Economy</option>
+                        <option value="business">Business</option>
+                      </select>
+
+               </div>
+
+               <div class="link-button">
+                  <a class="link-button-1" href=""><img src="icon/Group 54.svg" alt="">Open Now</a>
+                  <a class="link-button-2" href=""><img src="icon/Vector (3).svg" alt="">High Rated</a>
+                  <a class="link-button-3" href=""><img src="icon/Vector (2).svg" alt=""> Most Review</a>
+               </div>
+            </div>
+
+            <h2 class="price-range">Price Range: <span>From</span> 0 <span>to</span> 5000 <span>Taka</span> </h2>
+
+            <h2 class="filter">Filter by tags <i class="fas fa-caret-down"></i></h2>
+
+            <form>
+               <div class="space-draw">
+                  <input type="checkbox" id="Food" name="vehicle1" value="Food">
+                  <label for="vehicle1" class="checkbox-design">Food </label><Br>
+               </div>
+               <div class="space-draw">
+                  <input type="checkbox" id="Restaurant" name="vehicle2" value="Restaurant">
+                  <label for="vehicle2" class="checkbox-design">Restaurant </label>
+               </div>
+               <div class="space-draw">
+                  <input type="checkbox" id="Hotel" name="vehicle3" value="Hotel">
+                  <label for="vehicle3" class="checkbox-design"> Hotel</label>
+               </div>
+
+               <div class="space-draw">
+                  <input type="checkbox" id="Bus Services" name="vehicle4" value="way path">
+                  <label for="vehicle3" class="checkbox-design">Way Path</label>
+               </div>
+
+               <div class="space-draw">
+                  <input type="checkbox" id="Bus Services" name="vehicle4" value="Bus Services">
+                  <label for="vehicle3" class="checkbox-design">Bus Services</label>
+               </div>
+
+            </form>
+
+            <div class="found-resutl">
+               <h2 class="search-result">17 Results found</h2>
+               <button onclick="fullMenu()" id="fullMenu">
+                   Clicl
+{#                  <img src="{% static '/icon/fullmenu.svg' %}" alt="">#}
+               </button>
+            </div>
+         </div>
+         </div>
+
+         <!-- place history start -->
+
+         <div class="Destination-place-history">
+            <div class="Destination-place">
+               <img src="./image/destination.png" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <h2>Sunamganj Haor</h2>
+                     <div class="more-info">
+                        <p class="rate">5.0</p>
+                        <p class="num-rat">5 Rating</p>
+                        <p class="money">From <span> 1000/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">There are some huge haors in the northeast
+                        of Bangladesh. The most famous of these is the Tanguar Haor at Taherpur in Sunamganj.</p>
+
+
+
+                  </div>
+               </article>
+            </div>
+            <div class="Destination-place">
+               <img src="./image/destination.png" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <h2>Sunamganj Haor</h2>
+                     <div class="more-info">
+                        <p class="rate">5.0</p>
+                        <p class="num-rat">5 Rating</p>
+                        <p class="money">From <span> 1000/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">There are some huge haors in the northeast
+                        of Bangladesh. The most famous of these is the Tanguar Haor at Taherpur in Sunamganj.</p>
+
+
+
+                  </div>
+               </article>
+
+            </div>
+
+            <div class="Destination-place">
+               <img src="./image/destination-1.png" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <h2>Sunamganj Haor</h2>
+                     <div class="more-info">
+                        <p class="rate">5.0</p>
+                        <p class="num-rat">5 Rating</p>
+                        <p class="money">From <span> 1000/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">There are some huge haors in the northeast
+                        of Bangladesh. The most famous of these is the Tanguar Haor at Taherpur in Sunamganj.</p>
+
+
+
+                  </div>
+               </article>
+
+            </div>
+
+
+
+            <div class="Destination-place">
+               <img src="./image/destination.png" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <h2>Sunamganj Haor</h2>
+                     <div class="more-info">
+                        <p class="rate">5.0</p>
+                        <p class="num-rat">5 Rating</p>
+                        <p class="money">From <span> 1000/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">There are some huge haors in the northeast
+                        of Bangladesh. The most famous of these is the Tanguar Haor at Taherpur in Sunamganj.</p>
+
+
+
+                  </div>
+               </article>
+
+            </div>
+
+            <div class="Destination-place">
+               <img src="./image/destination.png" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <h2>Sunamganj Haor</h2>
+                     <div class="more-info">
+                        <p class="rate">5.0</p>
+                        <p class="num-rat">5 Rating</p>
+                        <p class="money">From <span> 1000/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">There are some huge haors in the northeast
+                        of Bangladesh. The most famous of these is the Tanguar Haor at Taherpur in Sunamganj.</p>
+
+
+
+                  </div>
+               </article>
+
+            </div>
+
+            <div class="Destination-place">
+               <img src="./image/destination.png" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <h2>Sunamganj Haor</h2>
+                     <div class="more-info">
+                        <p class="rate">5.0</p>
+                        <p class="num-rat">5 Rating</p>
+                        <p class="money">From <span> 1000/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">There are some huge haors in the northeast
+                        of Bangladesh. The most famous of these is the Tanguar Haor at Taherpur in Sunamganj.</p>
+
+
+
+                  </div>
+               </article>
+
+            </div>
+
+            <div class="Destination-place">
+               <img src="./image/destination.png" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <h2>Sunamganj Haor</h2>
+                     <div class="more-info">
+                        <p class="rate">5.0</p>
+                        <p class="num-rat">5 Rating</p>
+                        <p class="money">From <span> 1000/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">There are some huge haors in the northeast
+                        of Bangladesh. The most famous of these is the Tanguar Haor at Taherpur in Sunamganj.</p>
+
+
+
+                  </div>
+               </article>
+
+            </div>
+
+            <div class="Destination-place">
+               <img src="./image/destination.png" alt="">
+
+               <article>
+                  <div class="destination-place-all-info">
+                     <h2>Sunamganj Haor</h2>
+                     <div class="more-info">
+                        <p class="rate">5.0</p>
+                        <p class="num-rat">5 Rating</p>
+                        <p class="money">From <span> 1000/-</span></p>
+                        <p class="hotel-icon"> <i class="fas fa-hotel"></i> Hotel</p>
+                     </div>
+
+                     <p class="paragraph-content">There are some huge haors in the northeast
+                        of Bangladesh. The most famous of these is the Tanguar Haor at Taherpur in Sunamganj.</p>
+
+
+
+                  </div>
+               </article>
+
+            </div>
+         </div>
+      </section>
+
+
+      <!-- map-image  -->
+
+      <section class="map">
+         <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14604.419329727101!2d90.419638!3d23.779281!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1631034354092!5m2!1sen!2sbd"
+            width="590px" height="1130px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </section>
+
+   </main>
+{% endblock main_content %}
+
+{% block custom_javascripts %}
+
+
+<!--sticky toggle-->
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+
+<!--Mouseover() function-->
+<script>
+  function mouseOver() {
+    document.getElementById("email").style.color = "white";
+    document.getElementById("email").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOut() {
+    document.getElementById("email").style.color = "black";
+    document.getElementById("email").style.backgroundColor = "#F3F3F3";
+  }
+  function mouseOverphone() {
+    document.getElementById("phone").style.color = "white";
+    document.getElementById("phone").style.backgroundColor = "#5fbe00";
+  }
+  function mouseOutphone() {
+    document.getElementById("phone").style.color = "black";
+    document.getElementById("phone").style.backgroundColor = "#F3F3F3";
+  }
+
+</script>
+
+<script src="{% static '/Js/destination.js' %}" defer></script>
+<script src="{% static 'static/Js/nav2.js' %}"></script>
+{% endblock custom_javascripts %}
+
+
